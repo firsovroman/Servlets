@@ -21,9 +21,10 @@ public class FilterConnect implements Filter
     {
         if (active){
             // Здесь можно вставить код для обработки он выполнется перед кодом самого сервлета
+            System.out.println("логируем запрос " + request.getContentType());
             System.out.println("123");
         }
-        chain.doFilter(request, response);
+        chain.doFilter(request, response); // в цепочку можно вернуть измененный запрос/ответ
     }
 
     public void destroy()
