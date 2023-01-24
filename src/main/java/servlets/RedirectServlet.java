@@ -1,6 +1,7 @@
 package servlets;
 
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,12 @@ public class RedirectServlet extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
+
+        System.out.println ("Версия сервлета : " + config.getInitParameter("version"));
+
+        ServletContext servletContext = config.getServletContext();
+        System.out.println ("Используемый Http server is : " + servletContext.getServerInfo());
+
         System.out.println("init() сработал!");
     }
 
